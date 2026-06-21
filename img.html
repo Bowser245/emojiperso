@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="images-de-émoji.ico">
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="images-de-émoji.ico" width="30" alt="LOGO de Emojiperso.com"/>
+    <header><h1>Emojiperso.com</h1></header>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 0px;
+  }
+  #chatbox {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    overflow-y: auto;
+    border-radius: 15px;
+  }
+  #userInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1em;
+    border-radius: 30px;
+    background-color: #ccc;
+    border: 2px solid #000000;
+    box-sizing: 30px
+  }
+  #userInput:hover {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1em;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: #ffffff;
+   }
+  .message {
+    margin: 10px 0;
+  }
+  .user {
+    text-align: right;
+    color: blue;
+  }
+  .bot {
+    text-align: left;
+    color: green;
+  }
+</style>
+</head>
+<body>
+    <nav>
+      <div class="logo">Naviguer</div>
+      <ul class="menu">
+        <li><a href="tire.html">Acceuil.</a></li>
+        <li><a href="emoji.html">Voir les émojis.</a></li>
+    <h2></h2>
+    <li><a href="credit.html">Crédits.</a></li>
+    <h2></h2>
+    <li><a href="iterface de jeu.html">Jeux.</a></li>
+    <h2></h2>
+    <li><a href="demo.html">Démo.</a></li>
+    <h2></h2>
+    <li><a href="emoji copy.html">Sets.</a></li>
+    <h2></h2>
+    <li><a href="disiener.html">Designer.</a></li>
+    <h2></h2>
+    <li><a href="myemoji.html">Mon émoji.</a></li>
+      </ul>
+    </nav>
+    <title>Asistance - Emojiperso.com</title>
+    <audio preload="auto" autoplay="autoplay" loop="loop">
+        <source src="musique-nous-sommes-les-patates.mp3" type="audio/mp3">
+        <source src="musique-nous-sommes-les-patates.ogg" type="audio/ogg">
+        <source src="musique-nous-sommes-les-patates.wav" type="audio/wav">
+    </audio>
+
+<h2>Asistance Émojiperso</h2>
+<div id="chatbox"></div>
+<input type="text" id="userInput" placeholder="Posez votre question..." />
+
+<script>
+  const chatbox = document.getElementById('chatbox');
+  const userInput = document.getElementById('userInput');
+  
+
+  const responses = {
+    "qui a créer émojiperso ?": "Bonjour, la personne qui a créer émojiperso.com est Bowser245 sur beaucoup de jeux vidéos.",
+    "quels sont les activités de émojiperso ?": "Bonjour, les activités de émojiperso.com sont Designer, Jeux, Mon émoji.",
+    "?": "Bonjour, je suis la chat-bot d’assistance du site.",
+    "c'est quoi mon émoji ?": "Bonjour, Mon émoji vous proposera un émoji entrez simplement votre prénom.",
+    "comment utiliser designer ?": "Bonjour, il est vrai que Designer n'inclut pas de notice d'utilisation donc. Je vais vous expliquer : Designer est un service pour créer une image d'émoji personnalisée.",
+    "combien il y a d'émoji sur émojiperso ?": "Bonjour, émojiperso.com contient 290 émojis précisément au dernier compte.",
+    "combien il y a de services sur émojiperso ?": "Bonjour, émojiperso.com contient 8 services précisément au dernier compte.",
+    "pourquoi émojiperso a été créé ?": "Bonjour, émojiperso.com a été créé pour permettre aux gens de s’exprimer avec nos émojis.",
+    "en quel format est télécharger l'émoji de designer ?": "Bonjour, designer téléchargera l'émoji en format <.png> dans les téléchargement de votre navigateur si vous appuyez le bouton enregistrer.",
+    "bug": "Bonjour, les bugs d'émojiperso qui sont là a cause du redimensionnement de fenètre qui d'ailleur n'éxiste pas causent un essai de redimensionement de la fenètre,(impossible) sur votre navigateur un autre bug du site est que si vous ne fremez pas l'onglet d'acceuil ou d'erreur beaucoup d'émoji (qui tombent du ciel) vont s'aglutiner et faire de la latence pendant environ 3 secondes.",
+    "latence": "Bonjour, la latence sur émojiperso peut se faire en très grand quantitée si l'économiseur de battrie est activé : toute les pages du site seront ralentient."
+  };
+
+  function appendMessage(message, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message ' + sender;
+    messageDiv.textContent = message;
+    chatbox.appendChild(messageDiv);
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+  userInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      const question = userInput.value.trim().toLowerCase();
+      if (question) {
+        appendMessage(question, 'user');
+        let answer = responses[question];
+        if (!answer) {
+          answer = "Désolé, je ne comprends pas cette question. Essayez de me poser un question a propos du site."; //ici le resultat si il ne truove pas de réponse
+        }
+        setTimeout(() => {
+          appendMessage(answer, 'bot');
+        }, 500);
+        userInput.value = ''
+      }
+    }
+  });
+</script>
+
+</body>

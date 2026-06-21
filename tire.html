@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images-de-émoji.ico">
+    <audio preload="auto" autoplay="autoplay" loop="loop">
+        <source src="musique-nous-sommes-les-patates.mp3" type="audio/mp3">
+        <source src="musique-nous-sommes-les-patates.ogg" type="audio/ogg">
+        <source src="musique-nous-sommes-les-patates.wav" type="audio/wav">
+    </audio>
+    <title>Acceuil - Emojiperso.com</title>
+</head>
+<body>
+  <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="images-de-émoji.ico" width="30" alt="LOGO de Emojiperso.com"/>
+    <header><h1>Emojiperso.com</h1></header>
+    <h1 id="title">Bienvenue sur émojiperso.</h1>
+    <p>Ce site contient des émoji à copier coller.</p>
+    <nav>
+      <div class="logo">Naviguer</div>
+      <ul class="menu">
+        <li><a href="tire.html">Acceuil.</a></li>
+        <li><a href="emoji.html">Voir les émojis.</a></li>
+    <h2></h2>
+    <li><a href="credit.html">Crédits.</a></li>
+    <h2></h2>
+    <li><a href="iterface de jeu.html">Jeux.</a></li>
+    <h2></h2>
+    <li><a href="demo.html">Démo.</a></li>
+    <h2></h2>
+    <li><a href="emoji copy.html">Sets.</a></li>
+    <h2></h2>
+    <li><a href="disiener.html">Designer.</a></li>
+    <h2></h2>
+    <li><a href="myemoji.html">Mon émoji.</a></li>
+      </ul>
+    </nav>
+    <video loop width="300" autoplay muted>
+      <source src="Video2.mp4" type="video/mp4">
+      <source src="Video2.webm" type="video/webm">
+      <source src="Video2.ogg" type="video/ogg">
+      Vidéo générique du site
+    </video>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>
+      Emojiperso.com est un site d'émoji public et 
+      <i>
+        <mark>
+          gratuit
+        </mark>
+      </i>
+    </p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="img.html"><img src="Sans titre.jpg" alt="source d'information" width="300" id="monimg"></a>
+    <style>
+        p {
+            color: black;
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        mark{
+          background-color: blue;
+        }
+    </style>
+    <script>
+  const emojis = ['😊', '🎉', '🚀', '🌟', '🔥', '💖', '🎈', '🤖', '✨', '🌈'];
+  
+  function createEmoji() {
+    const emoji = document.createElement('div');
+    emoji.className = 'emoji';
+    emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.style.left = Math.random() * 100 + 'vw';
+    emoji.style.fontSize = (20 + Math.random() * 30) + 'px';
+    emoji.style.animationDuration = (3 + Math.random() * 3) + 's';
+    document.body.appendChild(emoji);
+    
+    // Supprimer l'emoji après la fin de l'animation
+    emoji.addEventListener('animationend', () => {
+      emoji.remove();
+    });
+  }
+  const title = document.getElementById('title');
+
+  // Ajoutez ou retirez l'effet glitch au clic
+  title.addEventListener('click', () => {
+    title.classList.toggle('glitch');
+  });
+
+  // Créer des émojis toutes les 300ms
+  setInterval(createEmoji, 300);
+</script>
+<style>
+  .emoji {
+    position: absolute;
+    font-size: 24px;
+    top: -50px;
+    user-select: none;
+    animation: fall linear forwards;
+  }
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  #title {
+    font-size: 3em;
+    position: relative;
+    cursor: pointer;
+  }
+
+  /* Effet glitch */
+  h1.glitch {
+    animation: glitch 1s infinite;
+  }
+
+  @keyframes glitch {
+    0% {
+      text-shadow: 2px 0 red, -2px 0 cyan;
+    }
+    20% {
+      text-shadow: -2px 0 red, 2px 0 cyan;
+    }
+    40% {
+      text-shadow: 2px 2px red, -2px -2px cyan;
+    }
+    60% {
+      text-shadow: -2px -2px red, 2px 2px cyan;
+    }
+    80% {
+      text-shadow: 0 0 red, 0 0 cyan;
+    }
+    100% {
+      text-shadow: 2px 0 red, -2px 0 cyan;
+    }
+  }
+</style>
+</body>
+</html>

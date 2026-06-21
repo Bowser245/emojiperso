@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <audio preload="auto" autoplay="autoplay" loop="loop">
+        <source src="musique-nous-sommes-les-patates.mp3" type="audio/mp3">
+        <source src="musique-nous-sommes-les-patates.ogg" type="audio/ogg">
+        <source src="musique-nous-sommes-les-patates.wav" type="audio/wav">
+    </audio>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images-de-émoji.ico">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tamagotchi - Emojiperso.com</title>
+<header>
+      <nav>
+            <div class="logo">Naviguer</div>
+            <ul class="menu">
+                <li><a href="tire.html">Acceuil.</a></li>
+                <li><a href="emoji.html">Voir les émojis.</a></li>
+                <h2></h2>
+                <li><a href="credit.html">Crédits.</a></li>
+                <h2></h2>
+                <li><a href="iterface de jeu.html">Jeux.</a></li>
+                <h2></h2>
+                <li><a href="demo.html">Démo.</a></li>
+                <h2></h2>
+                <li><a href="emoji copy.html">Sets.</a></li>
+                <h2></h2>
+                <li><a href="disiener.html">Designer.</a></li>
+                <h2></h2>
+                <li><a href="myemoji.html">Mon émoji.</a></li>
+            </ul>
+        </nav>
+</header>
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 0px;
+  }
+  #tamagotchi {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    background-color: #ffe4b5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+  }
+  .status {
+    margin: 10px 0;
+  }
+  button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+</style>
+</head>
+<body>
+
+<h1>Mon Tamagotchi</h1>
+
+<div id="tamagotchi">😊</div>
+
+<div class="status">
+  Faim : <span id="hunger">50</span>
+</div>
+<div class="status">
+  Bonheur : <span id="happiness">50</span>
+</div>
+<div class="status">
+  Énergie : <span id="energy">50</span>
+</div>
+
+<button onclick="feed()">Nourrir</button>
+<button onclick="play()">Jouer</button>
+<button onclick="sleep()">Dormir</button>
+
+<script>
+  let hunger = 50;
+  let happiness = 50;
+  let energy = 50;
+
+  const hungerSpan = document.getElementById('hunger');
+  const happinessSpan = document.getElementById('happiness');
+  const energySpan = document.getElementById('energy');
+  const tamagotchiDiv = document.getElementById('tamagotchi');
+
+  function updateDisplay() {
+    hungerSpan.textContent = hunger;
+    happinessSpan.textContent = happiness;
+    energySpan.textContent = energy;
+
+    // Modifier l'expression du Tamagotchi selon son état
+    if (hunger > 70) {
+      tamagotchiDiv.textContent = '😢'; // Faim
+    } else if (happiness < 30) {
+      tamagotchiDiv.textContent = '😠'; // Mécontent
+    } else if (energy < 30) {
+      tamagotchiDiv.textContent = '😴'; // Fatigué
+    } else {
+      tamagotchiDiv.textContent = '😊'; // Heureux
+    }
+  }
+
+  function feed() {
+    hunger -= 10;
+    if (hunger < 0) hunger = 0;
+    happiness += 5;
+    if (happiness > 100) happiness = 100;
+    updateDisplay();
+  }
+
+  function play() {
+    happiness += 10;
+    if (happiness > 100) happiness = 100;
+    energy -= 10;
+    if (energy < 0) energy = 0;
+    hunger += 5;
+    if (hunger > 100) hunger = 100;
+    updateDisplay();
+  }
+
+  function sleep() {
+    energy += 20;
+    if (energy > 100) energy = 100;
+    hunger += 5;
+    if (hunger > 100) hunger = 100;
+    happiness -= 5;
+    if (happiness < 0) happiness = 0;
+    updateDisplay();
+  }
+
+  // Fonction pour faire évoluer l'état du Tamagotchi dans le temps
+  setInterval(() => {
+    hunger += 1;
+    energy -= 1;
+    happiness -= 1;
+
+    if (hunger > 100) hunger = 100;
+    if (energy < 0) energy = 0;
+    if (happiness < 0) happiness = 0;
+
+    updateDisplay();
+  }, 3000); // toutes les 3 secondes
+
+  // Initialiser l'affichage
+  updateDisplay();
+</script>
+</body>
+</html>

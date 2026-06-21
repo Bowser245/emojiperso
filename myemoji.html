@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon émoji - Emojiperso</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images-de-émoji.ico">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="images-de-émoji.ico" width="30" alt="LOGO de Emojiperso.com"/>
+    <header><h1>Emojiperso.com</h1></header>
+    <h1>Bienvenue sur Mon émoji</h1>
+    <p>Entrer votre nom et c'est tout 😀 on vous revera un émoji.</p>
+    <nav>
+      <div class="logo">Naviguer</div>
+      <ul class="menu">
+        <li><a href="tire.html">Acceuil.</a></li>
+        <li><a href="emoji.html">Voir les émojis.</a></li>
+    <h2></h2>
+    <li><a href="credit.html">Crédits.</a></li>
+    <h2></h2>
+    <li><a href="iterface de jeu.html">Jeux.</a></li>
+    <h2></h2>
+    <li><a href="demo.html">Démo.</a></li>
+    <h2></h2>
+    <li><a href="emoji copy.html">Sets.</a></li>
+    <h2></h2>
+    <li><a href="disiener.html">Designer.</a></li>
+    <h2></h2>
+    <li><a href="myemoji.html">Mon émoji.</a></li>
+      </ul>
+    </nav>
+    <style>
+        #monid {
+            font-size: 30px;
+            font-family: 'Arial Narrow';
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <audio preload="auto" autoplay="autoplay" loop="loop">
+        <source src="musique-nous-sommes-les-patates.mp3" type="audio/mp3">
+        <source src="musique-nous-sommes-les-patates.ogg" type="audio/ogg">
+        <source src="musique-nous-sommes-les-patates.wav" type="audio/wav">
+    </audio>
+    <script>
+        // Stockage du nom d'utilisateur
+// Supposons que vous récupérez le nom d'utilisateur via un prompt ou une autre méthode
+let username = prompt("Veuillez entrer votre prénom ne vous inquéter pas ce ne sera pas sauvegarder 👻👻👻 :");
+
+// Stockage dans le localStorage pour persistance
+localStorage.setItem("// nom d'utilisateur", username);
+
+// Fonction pour récupérer le nom d'utilisateur
+function getUsername() {
+    return localStorage.getItem("// nom d'utilisateur");
+}
+
+// Fonction pour proposer un emoji (par exemple, basé sur le nom ou aléatoirement)
+function proposerEmoji() {
+    const emojis = ["😊", "🎉", "🚀", "🌟", "🔥", "💡", "🎈", "🌈", "👻", "👾", "🍫", "💧", "🧩", "🍌", "💩", "👽"];
+    // Vous pouvez personnaliser la logique ici, par exemple, en utilisant le nom pour choisir un emoji
+    // Par exemple, basé sur la première lettre du nom
+    const user = getUsername();
+    if (user) {
+        const firstLetter = user.charAt(0).toLowerCase();
+        // Simple exemple : si la première lettre est une voyelle, proposer un emoji spécifique
+        if ("aeiouy".includes(firstLetter)) {
+            return "😊"; // emoji pour les voyelles
+        } else {
+            // Sinon, choisir un emoji aléatoire
+            return emojis[Math.floor(Math.random() * emojis.length)];
+        }
+    } else {
+        // Si pas de nom d'utilisateur, proposer un emoji aléatoire
+        return emojis[Math.floor(Math.random() * emojis.length)];
+    }
+}
+
+// Afficher l'emoji dans la page
+const emoji = proposerEmoji();
+document.body.innerHTML += `<p id="monid">Bonjour, ${getUsername()} ! Voici votre emoji : ${emoji}</p>`;
+    </script>
+</body>
+</html>
