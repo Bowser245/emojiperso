@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <audio preload="auto" autoplay="autoplay" loop="loop">
+        <source src="musique-nous-sommes-les-patates.mp3" type="audio/mp3">
+        <source src="musique-nous-sommes-les-patates.ogg" type="audio/ogg">
+        <source src="musique-nous-sommes-les-patates.wav" type="audio/wav">
+    </audio>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="images-de-émoji.ico" width="30" alt="LOGO de Emojiperso.com"/>
+    <header>
+        <h1>Emojiperso.com</h1>
+        <nav>
+            <div class="logo">Naviguer</div>
+            <ul class="menu">
+                <li><a href="tire.html">Acceuil.</a></li>
+                <li><a href="emoji.html">Voir les émojis.</a></li>
+                <h2></h2>
+                <li><a href="credit.html">Crédits.</a></li>
+                <h2></h2>
+                <li><a href="iterface de jeu.html">Jeux.</a></li>
+                <h2></h2>
+                <li><a href="demo.html">Démo.</a></li>
+                <h2></h2>
+                <li><a href="emoji copy.html">Sets.</a></li>
+                <h2></h2>
+                <li><a href="disiener.html">Designer.</a></li>
+                <h2></h2>
+                <li><a href="myemoji.html">Mon émoji.</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Voici les sets</h1>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 0px;
+        }
+        .emoji-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .emoji {
+            font-size: 50px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .emoji:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.1);
+        }
+        #message {
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="emoji-container" id="emojiContainer">
+        <!-- Les émojis seront insérés ici par JavaScript -->
+    </div> 
+    <div id="message"></div>
+
+    <script>
+        const emojis = ['😀😂', '😍💖', '🌟⭐', '🍕🍿', '🔥💧', '🚀👾', '🐶💩', '🎉🏷️', '🌈🏖️', '🤔🧩', '👽👻', '🍫🥨', '🎶📀', '🥭🍑', '🍉🍓', '🍎🍐'];
+        const container = document.getElementById('emojiContainer');
+        const messageDiv = document.getElementById('message');
+
+        // Fonction pour créer et afficher les émojis
+        emojis.forEach(emoji => {
+            const span = document.createElement('span');
+            span.className = 'emoji';
+            span.textContent = emoji;
+            span.title = 'Cliquez pour copier';
+            span.onclick = () => {
+                navigator.clipboard.writeText(emoji).then(() => {
+                    alert(`Set "${emoji}" copié dans le presse-papiers !`);
+                });
+            };
+            container.appendChild(span);
+        });
+    </script>
+</body>
+</html>
+
+<title>Sets - Emojiperso.com</title>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images-de-émoji.ico">
+</head>

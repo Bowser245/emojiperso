@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <audio preload="auto" autoplay="autoplay" loop="loop">
+        <source src="musique-nous-sommes-les-patates.mp3" type="audio/mp3">
+        <source src="musique-nous-sommes-les-patates.ogg" type="audio/ogg">
+        <source src="musique-nous-sommes-les-patates.wav" type="audio/wav">
+    </audio>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images-de-émoji.ico">
+  <title>Devine le nombre - Emojiperso.com</title>
+</head>
+<body>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h2>Devine le nombre entre 1 et 100</h2>
+  <input type="number" id="guessInput" placeholder="Ton nombre" />
+  <button onclick="verifier()">Vérifier</button>
+  <p id="message"></p>
+
+  <script>
+    const nombreSecret = Math.floor(Math.random() * 100) + 1;
+    let tentatives = 0;
+
+    function verifier() {
+      const guess = parseInt(document.getElementById('guessInput').value);
+      const message = document.getElementById('message');
+      tentatives++;
+      if (guess === nombreSecret) {
+        message.innerHTML = `Bravo ! Tu as trouvé en ${tentatives} tentatives.`;
+      } else if (guess < nombreSecret) {
+        message.innerHTML = 'C’est plus grand ! Essaie encore.';
+      } else {
+        message.innerHTML = 'C’est plus petit ! Essaie encore.';
+      }
+    }
+  </script>
+<nav>
+      <div class="logo">Naviguer</div>
+      <ul class="menu">
+        <li><a href="tire.html">Acceuil.</a></li>
+        <li><a href="emoji.html">Voir les émojis.</a></li>
+    <h2></h2>
+    <li><a href="credit.html">Crédits.</a></li>
+    <h2></h2>
+    <li><a href="iterface de jeu.html">Jeux.</a></li>
+    <h2></h2>
+    <li><a href="demo.html">Démo.</a></li>
+    <h2></h2>
+    <li><a href="emoji copy.html">Sets.</a></li>
+    <h2></h2>
+    <li><a href="disiener.html">Designer.</a></li>
+    <h2></h2>
+    <li><a href="myemoji.html">Mon émoji.</a></li>
+      </ul>
+    </nav>
+</body>
+</html>
